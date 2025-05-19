@@ -1,17 +1,125 @@
-[gd_scene load_steps=5 format=3 uid="uid://d44y0u5e0vlh"]
+[gd_scene load_steps=9 format=3 uid="uid://d44y0u5e0vlh"]
 
 [ext_resource type="Texture2D" uid="uid://cj17lbgvljy3f" path="res://assets/game/Objects/Basic_Grass_Biom_things.png" id="1_3mtjp"]
 [ext_resource type="Script" uid="uid://dhuh4pnsbbqsv" path="res://scenes/components/collectable_component.gd" id="2_778xq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7lil"]
+radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_778xq"]
 atlas = ExtResource("1_3mtjp")
 region = Rect2(80, 32, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w7lil"]
-radius = 8.0
+[sub_resource type="Animation" id="Animation_778xq"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.433333, 0.633333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, 0), Vector2(0, -4), Vector2(0, 0)]
+}
 
-[node name="Log" type="Sprite2D"]
-texture = SubResource("AtlasTexture_778xq")
+[sub_resource type="Animation" id="Animation_w7lil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollectableComponent/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_frdwd"]
+resource_name = "appearB"
+length = 1.03334
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.225642, 0.95)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0, -10.719, -17.1242, -0.25, 0, 0.198669, 3.79085, 0.0163378, 0, -5.65359, 0.0333334, -6.33987, -0.0163419, -0.101331, -8.88889, 0.25, 0),
+"times": PackedFloat32Array(0, 0.333333, 0.6, 1.03333)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollectableComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.03334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_frdwd"]
+_data = {
+&"RESET": SubResource("Animation_w7lil"),
+&"appear": SubResource("Animation_778xq"),
+&"appearB": SubResource("Animation_frdwd")
+}
+
+[node name="Log" type="Node2D"]
 
 [node name="CollectableComponent" type="Area2D" parent="."]
 collision_layer = 32
@@ -21,6 +129,17 @@ collectable_name = "log"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 shape = SubResource("CircleShape2D_w7lil")
+disabled = true
 debug_color = Color(0.245571, 0.626225, 0.326217, 0.42)
+
+[node name="Log" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_778xq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Log")
+libraries = {
+&"": SubResource("AnimationLibrary_frdwd")
+}
+autoplay = "appearB"
 
 [connection signal="body_entered" from="CollectableComponent" to="CollectableComponent" method="_on_body_entered"]
