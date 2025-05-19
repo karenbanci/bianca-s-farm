@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d44y0u5e0vlh"]
+[gd_scene load_steps=9 format=3 uid="uid://b4e3e1f07jimj"]
 
-[ext_resource type="Texture2D" uid="uid://cj17lbgvljy3f" path="res://assets/game/Objects/Basic_Grass_Biom_things.png" id="1_3mtjp"]
-[ext_resource type="Script" uid="uid://dhuh4pnsbbqsv" path="res://scenes/components/collectable_component.gd" id="2_778xq"]
+[ext_resource type="Texture2D" uid="uid://cj17lbgvljy3f" path="res://assets/game/Objects/Basic_Grass_Biom_things.png" id="1_ftwyl"]
+[ext_resource type="PackedScene" uid="uid://cc74dydus5pwa" path="res://scenes/components/collectable_component.tscn" id="2_v6p7q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w7lil"]
-radius = 8.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_778xq"]
-atlas = ExtResource("1_3mtjp")
-region = Rect2(80, 32, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycexf"]
+atlas = ExtResource("1_ftwyl")
+region = Rect2(114, 18, 10, 8)
 
 [sub_resource type="Animation" id="Animation_w7lil"]
 length = 0.001
@@ -119,27 +116,25 @@ _data = {
 &"appearB": SubResource("Animation_frdwd")
 }
 
-[node name="Log" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3omm5"]
+radius = 4.0
 
-[node name="CollectableComponent" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 2
-script = ExtResource("2_778xq")
-collectable_name = "log"
+[node name="Stone" type="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
-shape = SubResource("CircleShape2D_w7lil")
-disabled = true
-debug_color = Color(0.245571, 0.626225, 0.326217, 0.42)
+[node name="Stone" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ycexf")
 
-[node name="Log" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_778xq")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Log")
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Stone")
 libraries = {
 &"": SubResource("AnimationLibrary_frdwd")
 }
 autoplay = "appearB"
 
-[connection signal="body_entered" from="CollectableComponent" to="CollectableComponent" method="_on_body_entered"]
+[node name="CollectableComponent" parent="." instance=ExtResource("2_v6p7q")]
+collectable_name = "stone"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_3omm5")
+disabled = true
+debug_color = Color(0.702845, 0.448801, 0.535884, 0.42)
