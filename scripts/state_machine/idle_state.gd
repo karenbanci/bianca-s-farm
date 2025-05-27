@@ -9,7 +9,7 @@ extends NodeState
 var idle_state_timeout: bool = false
 
 func _ready()-> void:
-	idle_state_timer.wait_time = randi_range(0.5, idle_state_time_interval)
+	idle_state_timer.wait_time = randf_range(0.5, idle_state_time_interval)
 	idle_state_timer.timeout.connect(on_idle_State_timeout)
 	add_child(idle_state_timer)
 
