@@ -401,10 +401,12 @@ radius = 4.0
 radius = 2.82843
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_6avc5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_omk8d")
 animation = &"idle_front"

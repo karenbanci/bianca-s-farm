@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj17lbgvljy3f" path="res://assets/game/Objects/Basic_Grass_Biom_things.png" id="4_0b0mn"]
 [ext_resource type="PackedScene" uid="uid://c35tea4sg0pxs" path="res://scenes/large_house.tscn" id="5_0b0mn"]
 [ext_resource type="PackedScene" uid="uid://bikp2imqva54a" path="res://scenes/medium_house.tscn" id="6_pi5w0"]
-[ext_resource type="PackedScene" uid="uid://b4gg0w01g2qy6" path="res://scenes/object/trees/small_tree.tscn" id="7_ow828"]
+[ext_resource type="PackedScene" uid="uid://b4gg0w01g2qy6" path="res://small_tree.tscn" id="7_mt8is"]
 [ext_resource type="PackedScene" uid="uid://d1lsh86rxlp2o" path="res://scenes/object/trees/big_tree.tscn" id="8_4agr7"]
 [ext_resource type="PackedScene" uid="uid://xntqtfjbjmvu" path="res://scenes/object/rocks/rock.tscn" id="8_mt8is"]
 
@@ -452,7 +452,9 @@ texture = ExtResource("3_xwv23")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ow828"]
 texture = ExtResource("4_0b0mn")
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.5, 0.5, 3, 1, 4.5, 5.5, -4.5, 6)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.5, 0.5, 3, 1, 4.5, 5.5, -4.5, 6)
 7:0/0 = 0
 8:0/0 = 0
 5:1/0 = 0
@@ -460,8 +462,14 @@ texture = ExtResource("4_0b0mn")
 7:1/0 = 0
 8:1/0 = 0
 3:2/0 = 0
+3:2/0/y_sort_origin = 3
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, 1.5, 4, 2, 4.5, 5.5, -2, 6)
 4:2/0 = 0
+4:2/0/y_sort_origin = 3
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 1, 3.5, 1, 3.5, 4.5, -4, 4.5)
 5:2/0 = 0
+5:2/0/y_sort_origin = 3
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 1, 7.5, 1, 7.5, 4.5, -8, 4)
 6:2/0 = 0
 7:2/0 = 0
 7:3/0 = 0
@@ -475,22 +483,28 @@ texture = ExtResource("4_0b0mn")
 1:3/0 = 0
 3:0/size_in_atlas = Vector2i(2, 2)
 3:0/0 = 0
+3:0/0/y_sort_origin = 8
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.5, 8, 3.5, 8, 3.5, 15, -3.5, 15)
 8:2/size_in_atlas = Vector2i(1, 2)
 8:2/0 = 0
+8:2/0/y_sort_origin = 8
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pi5w0"]
 scenes/1/scene = ExtResource("5_0b0mn")
 scenes/2/scene = ExtResource("6_pi5w0")
-scenes/3/scene = ExtResource("7_ow828")
+scenes/3/scene = ExtResource("7_mt8is")
 scenes/4/scene = ExtResource("8_mt8is")
 scenes/6/scene = ExtResource("8_4agr7")
 
 [resource]
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Grass Terrain"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "Tillerd Dirt Terrain"
 terrain_set_0/terrain_1/color = Color(0.268828, 0.413672, 0.799366, 1)
+terrain_set_0/terrain_2/name = "Terrain 2"
+terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_cbdxd")
 sources/1 = SubResource("TileSetAtlasSource_hu6sp")
 sources/2 = SubResource("TileSetAtlasSource_pi5w0")
