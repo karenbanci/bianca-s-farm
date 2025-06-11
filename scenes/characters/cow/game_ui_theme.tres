@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://0etnppxirgh6"]
+
+[ext_resource type="Texture2D" uid="uid://c1ks28jj8e524" path="res://assets/ui/basic_ui_sprites.png" id="1_3upg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3upg5"]
+atlas = ExtResource("1_3upg5")
+region = Rect2(293, 101, 38, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3upg5"]
+texture = SubResource("AtlasTexture_3upg5")
+texture_margin_left = 7.56731
+texture_margin_top = 8.24297
+texture_margin_right = 7.77001
+texture_margin_bottom = 7.9727
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j6cb"]
+atlas = ExtResource("1_3upg5")
+region = Rect2(293, 101, 38, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtmug"]
+texture = SubResource("AtlasTexture_1j6cb")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 38, 38)
+
+[resource]
+darkWoodPanel/base_type = &"PanelContainer"
+darkWoodPanel/styles/panel = SubResource("StyleBoxTexture_3upg5")
+darkWookPanel/base_type = &"PanelContainer"
+darkWookPanel/styles/panel = SubResource("StyleBoxTexture_dtmug")

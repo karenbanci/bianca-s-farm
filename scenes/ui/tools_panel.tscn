@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://d13qr8pveoip1"]
+
+[ext_resource type="Theme" uid="uid://0etnppxirgh6" path="res://scenes/characters/Cow/game_ui_theme.tres" id="1_2yiqu"]
+
+[node name="ToolsPanel" type="PanelContainer"]
+offset_right = 41.3373
+offset_bottom = 42.2157
+theme = ExtResource("1_2yiqu")
+theme_type_variation = &"darkWoodPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ToolAxe" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
