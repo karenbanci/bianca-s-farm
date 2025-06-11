@@ -61,6 +61,7 @@ radius = 8.0
 script = ExtResource("1_j7g5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_k1i7f")
 animation = &"walk"
@@ -74,6 +75,7 @@ shape = SubResource("CircleShape2D_c7r03")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 navigation_layers = 2
+path_postprocessing = 1
 avoidance_enabled = true
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_node_state")]
