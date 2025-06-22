@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cj17lbgvljy3f" path="res://assets/game/Objects/Basic_Grass_Biom_things.png" id="4_0b0mn"]
 [ext_resource type="PackedScene" uid="uid://c35tea4sg0pxs" path="res://scenes/large_house.tscn" id="5_0b0mn"]
 [ext_resource type="PackedScene" uid="uid://bikp2imqva54a" path="res://scenes/medium_house.tscn" id="6_pi5w0"]
-[ext_resource type="PackedScene" uid="uid://b4gg0w01g2qy6" path="res://small_tree.tscn" id="7_mt8is"]
+[ext_resource type="PackedScene" uid="uid://b4gg0w01g2qy6" path="res://scenes/object/trees/small_tree.tscn" id="7_mt8is"]
 [ext_resource type="PackedScene" uid="uid://d1lsh86rxlp2o" path="res://scenes/object/trees/big_tree.tscn" id="8_4agr7"]
 [ext_resource type="PackedScene" uid="uid://xntqtfjbjmvu" path="res://scenes/object/rocks/rock.tscn" id="8_mt8is"]
 [ext_resource type="Texture2D" uid="uid://btygak8f5xgdl" path="res://assets/game/Tilesets/Fences.png" id="10_o2x3h"]

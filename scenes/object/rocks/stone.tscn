@@ -122,6 +122,7 @@ radius = 4.0
 [node name="Stone" type="Node2D"]
 
 [node name="Stone" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = SubResource("AtlasTexture_ycexf")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]

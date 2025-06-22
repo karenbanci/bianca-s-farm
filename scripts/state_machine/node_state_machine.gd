@@ -21,7 +21,7 @@ func _ready() -> void:
 		initial_node_state._on_enter()
 		current_node_state = initial_node_state
 		current_node_state_name = current_node_state.name.to_lower()
-		print(parent_node_name, "Initial State:", current_node_state_name)
+		#print(parent_node_name, "Initial State:", current_node_state_name)
 
 
 func _process(delta : float) -> void:
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 
 func transition_to(node_state_name : String) -> void:
-	print(parent_node_name, "Transition to State:", node_state_name)
+	#print(parent_node_name, "Transition to State:", node_state_name)
 	if node_state_name == current_node_state.name.to_lower():
 		return
 	
