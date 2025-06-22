@@ -7,5 +7,4 @@ enum Tools {
 	WaterCrops,
 	PlantCorn,
 	PlantTomato
-	
 }
